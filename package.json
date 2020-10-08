@@ -1,42 +1,56 @@
 {
   "name": "simple-nest-api",
   "version": "0.0.1",
-  "description": "Simpe Nest API",
-  "author": "Mahdi Rashidi",
   "private": true,
+  "description": "Simpe Nest API",
   "license": "UNLICENSED",
+  "author": "Mahdi Rashidi",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
-    "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "start": "nest start",
+    "start:debug": "nest start --debug --watch",
+    "start:dev": "nest start --watch",
+    "start:prod": "node dist/main",
     "test": "jest",
-    "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "test:watch": "jest --watch"
+  },
+  "jest": {
+    "coverageDirectory": "../coverage",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testEnvironment": "node",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    }
   },
   "dependencies": {
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/typeorm": "^7.1.4",
-    "passport-jwt": "^4.0.0",
-    "pg": "^8.4.1",
     "argon2": "^0.27.0",
-    "reflect-metadata": "^0.1.13",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "passport-jwt": "^4.0.0",
+    "pg": "^8.4.1",
+    "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
     "slug": "^3.3.5",
-    "jsonwebtoken": "^8.5.1",
-    "crypto": "^1.0.1",
-    "crypto-js": "^4.0.0",
     "typeorm": "^0.2.28"
   },
   "devDependencies": {
@@ -60,19 +74,5 @@
     "ts-node": "9.0.0",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^3.7.4"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "rootDir": "src",
-    "testRegex": ".spec.ts$",
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
   }
 }
