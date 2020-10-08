@@ -25,13 +25,6 @@
         "consistent-return": "warn",
         "func-names": "warn",
         "global-require": "error",
-        "jest/expect-expect": "warn",
-        "jest/no-disabled-tests": "warn",
-        "jest/no-focused-tests": "error",
-        "jest/no-identical-title": "error",
-        "jest/no-try-expect": "warn",
-        "jest/prefer-to-have-length": "warn",
-        "jest/valid-expect": "error",
         "no-console": "warn",
         "no-plusplus": "warn",
         "no-restricted-syntax": "warn",
@@ -41,7 +34,6 @@
         "no-var": "error",
         "prefer-template": "warn",
         "no-compare-neg-zero": "error",
-        "security/detect-object-injection": "warn",
         "spaced-comment": "warn",
         "vars-on-top": "warn"
     }
