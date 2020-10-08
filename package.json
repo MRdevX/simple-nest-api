@@ -1,8 +1,8 @@
 {
   "name": "simple-nest-api",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Simpe Nest API",
+  "author": "Mahdi Rashidi",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
