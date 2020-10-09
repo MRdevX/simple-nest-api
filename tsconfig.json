@@ -1,18 +1,25 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "declaration": true,
-        "removeComments": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "allowSyntheticDefaultImports": true,
-        "target": "es2017",
-        "sourceMap": true,
-        "outDir": "./dist",
-        "baseUrl": "./",
-        "incremental": true
-    },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules"],
-    "entities": ["src/**/*.entity.ts"]
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "lib": ["es2017"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "allowJs": true,
+    "outDir": "./dist"
+  },
+    "include": [
+    "src/**/*"
+  ],
+    "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ],
+  "entities": ["dist/**/**/*.entity.js"],
+
 }
