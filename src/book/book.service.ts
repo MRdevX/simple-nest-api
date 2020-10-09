@@ -38,7 +38,7 @@ export class BookService {
             qb.andWhere('book.title LIKE :title', { title: `%${query.title}%` })
         }
 
-        const books = await qb.getMany()
+        const books = await qb.leftJoinAndSelect('book.categories', 'category').getMany()
 
         return { books, booksCount }
     }

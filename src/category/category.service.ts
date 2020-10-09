@@ -37,7 +37,7 @@ export class CategoryService {
     }
 
     async findOne(where): Promise<CategoryRO> {
-        const category = await this.categoryRepository.findOne(where)
+        const category = await this.categoryRepository.findOne(where, { relations: ['books'] })
         return { category }
     }
 
