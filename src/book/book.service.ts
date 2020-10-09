@@ -70,15 +70,15 @@ export class BookService {
         return newBook
     }
 
-    async update(slug: string, bookData: any): Promise<BookRO> {
-        const toUpdate = await this.bookRepository.findOne({ slug: slug })
+    async update(id: number, bookData: any): Promise<BookRO> {
+        const toUpdate = await this.bookRepository.findOne({ id: id })
         const updated = Object.assign(toUpdate, bookData)
         const book = await this.bookRepository.save(updated)
         return { book }
     }
 
-    async delete(slug: string): Promise<DeleteResult> {
-        return await this.bookRepository.delete({ slug: slug })
+    async delete(id: number): Promise<DeleteResult> {
+        return await this.bookRepository.delete({ id: id })
     }
 
     slugify(title: string) {

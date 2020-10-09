@@ -52,15 +52,15 @@ export class CategoryService {
         return newCategory
     }
 
-    async update(slug: string, categoryData: any): Promise<CategoryRO> {
-        const toUpdate = await this.categoryRepository.findOne({ slug: slug })
+    async update(id: number, categoryData: any): Promise<CategoryRO> {
+        const toUpdate = await this.categoryRepository.findOne({ id: id })
         const updated = Object.assign(toUpdate, categoryData)
         const category = await this.categoryRepository.save(updated)
         return { category }
     }
 
-    async delete(slug: string): Promise<DeleteResult> {
-        return await this.categoryRepository.delete({ slug: slug })
+    async delete(id: number): Promise<DeleteResult> {
+        return await this.categoryRepository.delete({ id: id })
     }
 
     slugify(title: string) {

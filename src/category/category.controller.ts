@@ -18,9 +18,9 @@ export class CategoryController {
         return await this.categoryService.findAll(query)
     }
 
-    @Get(':slug')
-    async findOne(@Param('slug') slug): Promise<CategoryRO> {
-        return await this.categoryService.findOne({ slug })
+    @Get(':id')
+    async findOne(@Param('id') id): Promise<CategoryRO> {
+        return await this.categoryService.findOne({ id })
     }
 
     @ApiOperation({ summary: 'Create category' })
@@ -34,16 +34,16 @@ export class CategoryController {
     @ApiOperation({ summary: 'Update category' })
     @ApiResponse({ status: 201, description: 'The category has been successfully updated.' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
-    @Put(':slug')
+    @Put(':id')
     async update(@Param() params, @Body('category') categoryData: CreateCategoryDto) {
-        return this.categoryService.update(params.slug, categoryData)
+        return this.categoryService.update(params.id, categoryData)
     }
 
     @ApiOperation({ summary: 'Delete category' })
     @ApiResponse({ status: 201, description: 'The category has been successfully deleted.' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
-    @Delete(':slug')
+    @Delete(':id')
     async delete(@Param() params) {
-        return this.categoryService.delete(params.slug)
+        return this.categoryService.delete(params.id)
     }
 }

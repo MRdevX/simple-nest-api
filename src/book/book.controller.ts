@@ -18,9 +18,9 @@ export class BookController {
         return await this.bookService.findAll(query)
     }
 
-    @Get(':slug')
-    async findOne(@Param('slug') slug): Promise<BookRO> {
-        return await this.bookService.findOne({ slug })
+    @Get(':id')
+    async findOne(@Param('id') id): Promise<BookRO> {
+        return await this.bookService.findOne({ id })
     }
 
     @ApiOperation({ summary: 'Create book' })
@@ -34,16 +34,16 @@ export class BookController {
     @ApiOperation({ summary: 'Update book' })
     @ApiResponse({ status: 201, description: 'The book has been successfully updated.' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
-    @Put(':slug')
+    @Put(':id')
     async update(@Param() params, @Body('book') bookData: CreateBookDto) {
-        return this.bookService.update(params.slug, bookData)
+        return this.bookService.update(params.id, bookData)
     }
 
     @ApiOperation({ summary: 'Delete book' })
     @ApiResponse({ status: 201, description: 'The book has been successfully deleted.' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
-    @Delete(':slug')
+    @Delete(':id')
     async delete(@Param() params) {
-        return this.bookService.delete(params.slug)
+        return this.bookService.delete(params.id)
     }
 }
