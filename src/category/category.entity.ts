@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, BeforeUpdate, ManyToOne } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, BeforeUpdate } from 'typeorm'
 import { BookEntity } from '../book/book.entity'
 
 @Entity('category')
@@ -26,6 +26,6 @@ export class CategoryEntity {
         this.updated = new Date()
     }
 
-    @ManyToOne((type) => BookEntity, (book) => book.categories)
-    book: BookEntity
+    @ManyToMany(() => BookEntity, (book) => book.categories)
+    books: BookEntity[]
 }

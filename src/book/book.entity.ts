@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, BeforeUpdate, OneToMany } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, BeforeUpdate, JoinTable, ManyToMany } from 'typeorm'
 import { CategoryEntity } from '../category/category.entity'
 
 @Entity('book')
@@ -35,6 +35,9 @@ export class BookEntity {
         this.updated = new Date()
     }
 
-    @OneToMany((type) => CategoryEntity, (category) => category.id)
+    @ManyToMany(() => CategoryEntity, (category) => category.books, {
+        cascade: true,
+    })
+    @JoinTable()
     categories: CategoryEntity[]
 }

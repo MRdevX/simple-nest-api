@@ -3,6 +3,6 @@ export class CreateBookDto {
     readonly description: string
     readonly pageCount: number
     readonly excerpt: string
-    readonly ismb: string
-    readonly categories: string[]
+    readonly isbn: string
+    readonly categories: number[]
 }

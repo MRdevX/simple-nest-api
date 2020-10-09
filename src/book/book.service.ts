@@ -44,7 +44,7 @@ export class BookService {
     }
 
     async findOne(where): Promise<BookRO> {
-        const book = await this.bookRepository.findOne(where)
+        const book = await this.bookRepository.findOne(where, { relations: ['categories'] })
         return { book }
     }
 
@@ -54,11 +54,18 @@ export class BookService {
         book.description = bookData.description
         book.slug = this.slugify(bookData.title)
         book.categories = []
+        const { categories } = bookData
+
+        await Promise.all(
+            categories.map(async (categoryId) => {
+                const category = await this.categoryRepository.findOne({ where: { id: categoryId } })
+                if (category) {
+                    book.categories.push(category)
+                }
+            }),
+        )
 
         const newBook = await this.bookRepository.save(book)
-
-        const category = await this.categoryRepository.findOne({ where: { id: categoryId }, relations: ['books'] })
-        category.books.push(book)
 
         return newBook
     }
