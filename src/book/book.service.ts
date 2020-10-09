@@ -4,6 +4,8 @@ import { Repository, getRepository, DeleteResult } from 'typeorm'
 import { BookEntity } from './book.entity'
 import { CreateBookDto } from './dto'
 import { BookRO, BooksRO } from './book.interface'
+import { CategoryEntity } from '../category/category.entity'
+
 import * as slug from 'slug'
 
 @Injectable()
@@ -11,6 +13,8 @@ export class BookService {
     constructor(
         @InjectRepository(BookEntity)
         private readonly bookRepository: Repository<BookEntity>,
+        @InjectRepository(CategoryEntity)
+        private readonly categoryRepository: Repository<CategoryEntity>,
     ) {}
 
     async findAll(query): Promise<BooksRO> {
@@ -30,6 +34,10 @@ export class BookService {
             qb.offset(query.offset)
         }
 
+        if ('title' in query) {
+            qb.andWhere('book.title LIKE :title', { title: `%${query.title}%` })
+        }
+
         const books = await qb.getMany()
 
         return { books, booksCount }
@@ -45,8 +53,12 @@ export class BookService {
         book.title = bookData.title
         book.description = bookData.description
         book.slug = this.slugify(bookData.title)
+        book.categories = []
 
         const newBook = await this.bookRepository.save(book)
+
+        const category = await this.categoryRepository.findOne({ where: { id: categoryId }, relations: ['books'] })
+        category.books.push(book)
 
         return newBook
     }

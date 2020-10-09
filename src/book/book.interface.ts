@@ -6,6 +6,9 @@ interface BookData {
     slug: string
     title: string
     description: string
+    excerpt?: string
+    isbn?: string
+    pageCount?: number
     createdAt?: Date
     updatedAt?: Date
 }

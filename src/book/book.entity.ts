@@ -15,6 +15,15 @@ export class BookEntity {
     @Column({ default: '' })
     description: string
 
+    @Column({ default: 0 })
+    pageCount: string
+
+    @Column({ default: '' })
+    excerpt: string
+
+    @Column({ default: '' })
+    isbn: string
+
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created: Date
 
@@ -26,6 +35,6 @@ export class BookEntity {
         this.updated = new Date()
     }
 
-    @OneToMany((type) => CategoryEntity, (category) => category.slug)
+    @OneToMany((type) => CategoryEntity, (category) => category.id)
     categories: CategoryEntity[]
 }
