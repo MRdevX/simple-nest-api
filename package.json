@@ -5,6 +5,9 @@
     "description": "Simpe Nest API",
     "license": "UNLICENSED",
     "author": "Mahdi Rashidi",
+    "engines": {
+        "node": ">=12.0.0"
+    },
     "scripts": {
         "prebuild": "rimraf dist",
         "build": "nest build",
@@ -48,6 +51,7 @@
         "passport-jwt": "^4.0.0",
         "pg": "^8.4.1",
         "reflect-metadata": "^0.1.13",
+        "lint-staged": "^10.4.0",
         "rimraf": "^3.0.2",
         "rxjs": "^6.6.3",
         "slug": "^3.3.5",
