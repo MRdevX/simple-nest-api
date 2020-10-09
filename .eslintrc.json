@@ -1,6 +1,7 @@
 {
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
+      "ecmaVersion": 2020, // Allows for the parsing of modern ECMAScript features
         "project": "tsconfig.json",
         "sourceType": "module"
     },
@@ -22,13 +23,12 @@
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "block-scoped-var": "warn",
-        "consistent-return": "warn",
         "func-names": "warn",
-        "global-require": "error",
+        "global-require": "off",
         "no-console": "warn",
         "no-plusplus": "warn",
         "no-restricted-syntax": "warn",
-        "no-underscore-dangle": "warn",
+        "no-underscore-dangle": "off",
         "no-unused-vars": "warn",
         "no-await-in-loop": "warn",
         "no-var": "error",
