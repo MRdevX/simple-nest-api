@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, BeforeUpdate } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, BeforeUpdate, OneToMany } from 'typeorm'
+import { CategoryEntity } from '../category/category.entity'
 
 @Entity('book')
 export class BookEntity {
@@ -24,4 +25,7 @@ export class BookEntity {
     updateTimestamp() {
         this.updated = new Date()
     }
+
+    @OneToMany((type) => CategoryEntity, (category) => category.slug)
+    categories: CategoryEntity[]
 }
