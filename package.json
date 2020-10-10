@@ -4,12 +4,8 @@
     "private": true,
     "description": "Simpe Nest API",
     "license": "UNLICENSED",
-    "author": "Mahdi Rashidi",
-    "engines": {
-        "node": ">=12.0.0"
-    },
+    "author": "Mahdi Rashidi <m8rashidi@gmail.com>",
     "main": "index.js",
-
     "scripts": {
         "prebuild": "rimraf dist",
         "build": "nest build",
@@ -84,5 +80,8 @@
         "ts-node": "9.0.0",
         "tsconfig-paths": "^3.9.0",
         "typescript": "^4.0.3"
+    },
+    "engines": {
+        "node": ">=12.0.0"
     }
 }
