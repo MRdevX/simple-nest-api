@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, HttpService } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository, getRepository, DeleteResult } from 'typeorm'
 import { BookEntity, CategoryEntity } from '../models'
 import { CreateBookDto } from '../helpers/dto'
-import { BookRO, BooksRO } from '../helpers/interfaces'
+import { BookRO, BooksRO,FetchBookRO } from '../helpers/interfaces'
 
 import * as slug from 'slug'
 
@@ -14,6 +14,7 @@ export class BookService {
         private readonly bookRepository: Repository<BookEntity>,
         @InjectRepository(CategoryEntity)
         private readonly categoryRepository: Repository<CategoryEntity>,
+        private httpService: HttpService,
     ) {}
 
     async findAll(query): Promise<BooksRO> {
@@ -45,6 +46,21 @@ export class BookService {
     async findOne(where): Promise<BookRO> {
         const book = await this.bookRepository.findOne(where, { relations: ['categories'] })
         return { book }
+    }
+
+    async fetchBook(isbn: number): Promise<FetchBookRO> {
+        const response = await this.httpService.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`).toPromise()
+        const book = response.data.items[0].volumeInfo
+
+        const result: FetchBookRO = {
+              title: book.title,
+              subtitle: book.subtitle,
+              authors: book.authors,
+              cover: book.imageLinks.thumbnail
+
+        }
+
+        return result
     }
 
     async create(bookData: CreateBookDto): Promise<BookEntity> {

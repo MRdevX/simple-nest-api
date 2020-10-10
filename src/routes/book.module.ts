@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common'
+import { MiddlewareConsumer, Module, NestModule, RequestMethod, HttpModule } from '@nestjs/common'
 import { BookController, CategoryController } from '../controllers'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { BookEntity, CategoryEntity } from '../models'
@@ -8,7 +8,7 @@ import { AuthMiddleware } from '../middlewares'
 import { UserModule } from './user.module'
 
 @Module({
-    imports: [TypeOrmModule.forFeature([BookEntity, CategoryEntity]), UserModule],
+    imports: [TypeOrmModule.forFeature([BookEntity, CategoryEntity]), UserModule, HttpModule],
     providers: [BookService, CategoryService],
     controllers: [BookController, CategoryController],
 })
@@ -17,10 +17,10 @@ export class BookModule implements NestModule {
         consumer
             .apply(AuthMiddleware)
             .forRoutes(
-                { path: 'books/feed', method: RequestMethod.GET },
+                { path: 'books/fetch/:isbn', method: RequestMethod.GET },
                 { path: 'books', method: RequestMethod.POST },
-                { path: 'books/:slug', method: RequestMethod.DELETE },
-                { path: 'books/:slug', method: RequestMethod.PUT },
+                { path: 'books/:id', method: RequestMethod.DELETE },
+                { path: 'books/:id', method: RequestMethod.PUT },
             )
     }
 }

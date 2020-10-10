@@ -1,6 +1,6 @@
 import { Get, Post, Body, Put, Delete, Query, Param, Controller } from '@nestjs/common'
 import { BookService } from '../services'
-import { BooksRO, BookRO } from '../helpers/interfaces'
+import { BooksRO, BookRO, FetchBookRO } from '../helpers/interfaces'
 import { CreateBookDto } from '../helpers/dto'
 
 import { ApiBearerAuth, ApiResponse, ApiOperation, ApiTags } from '@nestjs/swagger'
@@ -16,6 +16,13 @@ export class BookController {
     @Get()
     async findAll(@Query() query): Promise<BooksRO> {
         return await this.bookService.findAll(query)
+    }
+
+    @ApiOperation({ summary: 'Fetch Book by ISBN' })
+    @ApiResponse({ status: 200, description: 'Return Book Data.' })
+    @Get('fetch/:isbn')
+    async fetchBook(@Param('isbn') isbn): Promise<FetchBookRO> {
+        return await this.bookService.fetchBook(isbn)
     }
 
     @Get(':id')

@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common'
+import { MiddlewareConsumer, Module, NestModule, RequestMethod, HttpModule } from '@nestjs/common'
 import { BookController, CategoryController } from '../controllers'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { BookEntity, CategoryEntity } from '../models'
@@ -8,7 +8,7 @@ import { AuthMiddleware } from '../middlewares'
 import { UserModule } from './user.module'
 
 @Module({
-    imports: [TypeOrmModule.forFeature([CategoryEntity, BookEntity]), UserModule],
+    imports: [TypeOrmModule.forFeature([CategoryEntity, BookEntity]), UserModule, HttpModule],
     providers: [CategoryService, BookService],
     controllers: [CategoryController, BookController],
 })

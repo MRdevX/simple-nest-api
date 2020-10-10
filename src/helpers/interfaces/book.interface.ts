@@ -17,6 +17,13 @@ export interface BookRO {
     book: BookEntity
 }
 
+export interface FetchBookRO {
+    title: string
+    subtitle: string
+    authors: string[]
+    cover: string
+}
+
 export interface BooksRO {
     books: BookEntity[]
     booksCount: number
