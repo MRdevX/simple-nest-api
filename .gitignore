@@ -37,3 +37,4 @@ lerna-debug.log*
 ormconfig.json
 src/config.ts
 
+.fandogh/
