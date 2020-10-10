@@ -1,7 +1,7 @@
 import { Get, Post, Body, Put, Delete, Query, Param, Controller } from '@nestjs/common'
-import { CategoryService } from './category.service'
-import { CategoriesRO, CategoryRO } from './category.interface'
-import { CreateCategoryDto } from './dto'
+import { CategoryService } from '../services'
+import { CategoriesRO, CategoryRO } from '../helpers/interfaces'
+import { CreateCategoryDto } from '../helpers/dto'
 
 import { ApiBearerAuth, ApiResponse, ApiOperation, ApiTags } from '@nestjs/swagger'
 

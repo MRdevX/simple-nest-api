@@ -1,13 +1,11 @@
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common'
-import { BookController } from './book.controller'
-import { CategoryController } from '../category/category.controller'
+import { BookController, CategoryController } from '../controllers'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { BookEntity } from './book.entity'
-import { CategoryEntity } from '../category/category.entity'
-import { BookService } from './book.service'
-import { CategoryService } from '../category/category.service'
-import { AuthMiddleware } from '../user/auth.middleware'
-import { UserModule } from '../user/user.module'
+import { BookEntity, CategoryEntity } from '../models'
+import { BookService } from '../services'
+import { CategoryService } from '../services/category.service'
+import { AuthMiddleware } from '../middlewares'
+import { UserModule } from './user.module'
 
 @Module({
     imports: [TypeOrmModule.forFeature([BookEntity, CategoryEntity]), UserModule],

@@ -1,4 +1,4 @@
-import { SECRET } from '../config'
+import { SECRET } from '../config/config'
 import * as jwt from 'jsonwebtoken'
 
 export class BaseController {

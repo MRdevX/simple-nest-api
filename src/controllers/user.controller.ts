@@ -1,10 +1,10 @@
 import { Get, Post, Body, Put, Delete, Param, Controller, UsePipes } from '@nestjs/common'
-import { UserService } from './user.service'
-import { UserRO } from './user.interface'
-import { CreateUserDto, UpdateUserDto, LoginUserDto } from './dto'
+import { UserService } from '../services'
+import { UserRO } from '../helpers/interfaces'
+import { CreateUserDto, UpdateUserDto, LoginUserDto } from '../helpers/dto'
 import { HttpException } from '@nestjs/common/exceptions/http.exception'
-import { User } from './user.decorator'
-import { ValidationPipe } from '../shared/pipes/validation.pipe'
+import { User } from '../helpers/decorators'
+import { ValidationPipe } from '../validations/validation.pipe'
 
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
 

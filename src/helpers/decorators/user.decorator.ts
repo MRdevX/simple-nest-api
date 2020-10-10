@@ -1,5 +1,5 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common'
-import { SECRET } from '../config'
+import { SECRET } from '../../config/config'
 import * as jwt from 'jsonwebtoken'
 
 export const User = createParamDecorator((data: any, ctx: ExecutionContext) => {

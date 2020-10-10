@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { BookEntity } from './book.entity'
+import { BookEntity } from '../../models/book.entity'
 
 interface BookData {
     slug: string

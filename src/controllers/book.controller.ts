@@ -1,7 +1,7 @@
 import { Get, Post, Body, Put, Delete, Query, Param, Controller } from '@nestjs/common'
-import { BookService } from './book.service'
-import { BooksRO, BookRO } from './book.interface'
-import { CreateBookDto } from './dto'
+import { BookService } from '../services'
+import { BooksRO, BookRO } from '../helpers/interfaces'
+import { CreateBookDto } from '../helpers/dto'
 
 import { ApiBearerAuth, ApiResponse, ApiOperation, ApiTags } from '@nestjs/swagger'
 

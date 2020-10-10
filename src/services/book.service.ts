@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository, getRepository, DeleteResult } from 'typeorm'
-import { BookEntity } from './book.entity'
-import { CreateBookDto } from './dto'
-import { BookRO, BooksRO } from './book.interface'
-import { CategoryEntity } from '../category/category.entity'
+import { BookEntity, CategoryEntity } from '../models'
+import { CreateBookDto } from '../helpers/dto'
+import { BookRO, BooksRO } from '../helpers/interfaces'
 
 import * as slug from 'slug'
 

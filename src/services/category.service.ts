@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository, getRepository, DeleteResult } from 'typeorm'
-import { CategoryEntity } from './category.entity'
-import { CreateCategoryDto } from './dto'
-import { CategoryRO, CategoriesRO } from './category.interface'
+import { CategoryEntity } from '../models'
+import { CreateCategoryDto } from '../helpers/dto'
+import { CategoryRO, CategoriesRO } from '../helpers/interfaces'
 
 import * as slug from 'slug'
 
