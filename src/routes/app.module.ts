@@ -15,7 +15,7 @@ import { BookModule, UserModule, CategoryModule } from '.'
             username: process.env.TYPEORM_USERNAME,
             password: process.env.TYPEORM_PASSWORD,
             database: process.env.TYPEORM_DATABASE,
-            entities: ["src/models/*.entity.ts","dist/models/*.entity.js"],
+            entities: ['src/models/*.entity.ts', 'dist/models/*.entity.js'],
             synchronize: true,
         }),
         BookModule,
