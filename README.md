@@ -81,6 +81,11 @@ $ npm run lint
 
 ```
 
+## Swagger API docs
+
+This project uses the Nest swagger module for API documentation. [NestJS Swagger](https://github.com/nestjs/swagger) - [www.swagger.io](https://swagger.io/)
+Swagger docs will be available at localhost:3000/api/docs
+
 ## Stay in touch
 
 -   Author - [Mahdi Rashidi](mailto:m8rashidi@gmail.com)
