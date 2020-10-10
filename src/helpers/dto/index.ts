@@ -1,3 +1,3 @@
-export { CreateBookDto } from './create-book.dto'
-export { CreateCategoryDto } from './create-category.dto'
+export { CreateBookDto } from './book.dto'
+export { CreateCategoryDto } from './category.dto'
 export { LoginUserDto, CreateUserDto, UpdateUserDto } from './user.dto'
