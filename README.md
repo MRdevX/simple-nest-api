@@ -15,7 +15,30 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+A Simple Book Management API
+
+### Technologies implemented:
+
+-   [TypeOrm](https://typeorm.io/) (ORM) + [PostgreSQL](https://www.postgresql.org/)
+-   [JWT](https://jwt.io/)
+-   [Swagger](https://swagger.io/)
+
+## Prerequisites
+
+-   [Node.js](https://nodejs.org/) (>= 10.8.0)
+-   [npm](https://www.npmjs.com/) (>= 6.5.0)
+
+## Setting up the database
+
+PostgreSQL database connection options are shown in the following table:
+
+| Option   | Development |
+| -------- | ----------- |
+| Host     | localhost   |
+| Port     | 5432        |
+| Username | postgres    |
+| Password | postgres    |
+| Database | book-db     |
 
 ## Getting started
 
@@ -45,6 +68,17 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+```
+
+## Other commands
+
+```bash
+# formatting code
+$ npm run format
+
+# run linter
+$ npm run lint
+
 ```
 
 ## Stay in touch
