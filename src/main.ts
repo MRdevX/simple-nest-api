@@ -1,7 +1,7 @@
 require('ts-node/register')
 
 import { NestFactory } from '@nestjs/core'
-import { AppModule } from './routes'
+import { AppModule } from './routes/app.module'
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
 
 async function bootstrap() {
