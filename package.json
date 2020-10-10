@@ -1,15 +1,10 @@
 {
     "name": "simple-nest-api",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "private": true,
     "description": "Simpe Nest API",
     "license": "UNLICENSED",
-    "author": "Mahdi Rashidi",
-    "engines": {
-        "node": ">=12.0.0"
-    },
-    "main": "index.js",
-
+    "author": "Mahdi Rashidi <m8rashidi@gmail.com>",
     "scripts": {
         "prebuild": "rimraf dist",
         "build": "nest build",
@@ -46,6 +41,7 @@
         "@nestjs/swagger": "^4.6.1",
         "@nestjs/typeorm": "^7.1.4",
         "argon2": "^0.27.0",
+        "axios": "^0.20.0",
         "class-transformer": "^0.3.1",
         "class-validator": "^0.12.2",
         "crypto": "^1.0.1",
@@ -71,7 +67,7 @@
         "@types/supertest": "^2.0.10",
         "@typescript-eslint/eslint-plugin": "4.4.0",
         "@typescript-eslint/parser": "4.4.0",
-        "eslint": "7.10.0",
+        "eslint": "7.11.0",
         "eslint-config-prettier": "^6.12.0",
         "eslint-plugin-import": "^2.22.1",
         "husky": "^4.3.0",
@@ -84,5 +80,8 @@
         "ts-node": "9.0.0",
         "tsconfig-paths": "^3.9.0",
         "typescript": "^4.0.3"
+    },
+    "engines": {
+        "node": ">=10.0.0"
     }
 }

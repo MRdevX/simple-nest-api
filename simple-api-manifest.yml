@@ -1,0 +1,12 @@
+kind: ExternalService
+name: simple-api
+spec:
+  env:
+    - name: SECRET
+      value: secret-key
+  image: 'simple-api:v1.0.0'
+  image_pull_policy: IfNotPresent
+  port: 8080
+  replicas: 1
+  resources:
+    memory: 512Mi

@@ -1,12 +1,13 @@
 require('ts-node/register')
 
 import { NestFactory } from '@nestjs/core'
-import { AppModule } from './app.module'
+import { AppModule } from './routes/app.module'
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
 
 async function bootstrap() {
     const appOptions = { cors: true }
     const app = await NestFactory.create(AppModule, appOptions)
+    app.enableCors()
     app.setGlobalPrefix('api')
 
     const options = new DocumentBuilder()
@@ -16,8 +17,8 @@ async function bootstrap() {
         .addBearerAuth()
         .build()
     const document = SwaggerModule.createDocument(app, options)
-    SwaggerModule.setup('/docs', app, document)
+    SwaggerModule.setup('/api/docs/', app, document)
 
-    await app.listen(3000)
+    await app.listen(process.env.PORT || 3000)
 }
 bootstrap()
