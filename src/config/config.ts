@@ -1,1 +1,1 @@
-export const SECRET = 'secret-key'
+export const SECRET = process.env.JWT_SECRET_KEY
