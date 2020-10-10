@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm'
 import { Repository, getRepository, DeleteResult } from 'typeorm'
 import { BookEntity, CategoryEntity } from '../models'
 import { CreateBookDto } from '../helpers/dto'
-import { BookRO, BooksRO,FetchBookRO } from '../helpers/interfaces'
+import { BookRO, BooksRO, FetchBookRO } from '../helpers/interfaces'
 
 import * as slug from 'slug'
 
@@ -53,11 +53,10 @@ export class BookService {
         const book = response.data.items[0].volumeInfo
 
         const result: FetchBookRO = {
-              title: book.title,
-              subtitle: book.subtitle,
-              authors: book.authors,
-              cover: book.imageLinks.thumbnail
-
+            title: book.title,
+            subtitle: book.subtitle,
+            authors: book.authors,
+            cover: book.imageLinks.thumbnail,
         }
 
         return result
