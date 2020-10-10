@@ -17,6 +17,17 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Getting started
+
+```bash
+# 1. Clone the repository
+git clone git@github.com:MRdevX/simple-nest-api.git my-new-project
+
+# 2. Enter your newly-cloned folder.
+cd my-new-project
+
+```
+
 ## Installation
 
 ```bash
@@ -39,4 +50,4 @@ $ npm run start:prod
 ## Stay in touch
 
 -   Author - [Mahdi Rashidi](mailto:m8rashidi@gmail.com)
--   Twitter - [@nestframework](https://twitter.com/mrdevx)
+-   Twitter - [@MRdevX](https://twitter.com/mrdevx)
