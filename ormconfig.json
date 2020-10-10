@@ -1,10 +1,10 @@
 {
     "type": "postgres",
-    "host": "nest-db",
+    "host": "localhost",
     "port": 5432,
     "username": "postgres",
     "password": "postgres",
-    "database": "simple-nest-api",
+    "database": "nest-db",
     "entities": ["src/models/*.entity.ts"],
     "synchronize": true
 }
