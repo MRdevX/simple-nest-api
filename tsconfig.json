@@ -20,6 +20,6 @@
     "node_modules",
     "**/*.spec.ts"
   ],
-  "entities": ["dist/**/**/*.entity.js"],
+  "entities": ["src/models/*.entity.ts"],
 
 }
