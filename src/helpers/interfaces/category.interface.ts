@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CategoryEntity } from './category.entity'
+import { CategoryEntity } from '../../models'
 
 interface CategoryData {
     slug: string
